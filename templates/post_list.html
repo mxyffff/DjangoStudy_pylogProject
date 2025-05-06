@@ -7,11 +7,13 @@
 <body>
     <div id="navbar">
         <span>pylog</span>
+        <a href="/posts/add/" class="btn btn-primary">글 작성</a>
     </div>
     <div id="post-list">
         <ul class="posts">
             {% for post in posts %}
                 <li class="post">
+                    <a href="/posts/{{ post.id }}/">{{ post.title }}</a>
                     <div>{{ post.title }}</div>
                     <p>{{ post.content }}</p>
                     <ul class="comments">
@@ -21,6 +23,12 @@
                             <li class="comment-empty">아직 댓글이 없습니다</li>
                         {% endfor %}
                     </ul>
+{#                    <img src="{{ post.thumbnail.url }}" alt="">#}
+                    {% if post.thumbnail %}
+                        <img src="{{ post.thumbnail.url }}" alt="">
+                    {% else %}
+                        <img src="" alt="" >
+                    {% endif %}
                 </li>
             {% endfor %}
         </ul>

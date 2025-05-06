@@ -3,7 +3,7 @@ from blog.models import Post, Comment
 
 @admin.register(Post)
 class PostAdmin(admin.ModelAdmin):
-    pass
+    list_display = ["title","thumbnail"]
 # username: dklog / password: 225544
 
 @admin.register(Comment)
